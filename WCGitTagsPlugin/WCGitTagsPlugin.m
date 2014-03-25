@@ -11,11 +11,13 @@
 static WCGitTagsPlugin *sharedPlugin;
 
 @interface WCGitTagsPlugin()
-
 @property (nonatomic, strong) NSBundle *bundle;
+- (NSString *)currentDirectoryPath;
 @end
 
-@implementation WCGitTagsPlugin
+@implementation WCGitTagsPlugin {
+
+}
 
 + (void)pluginDidLoad:(NSBundle *)plugin
 {
@@ -38,10 +40,10 @@ static WCGitTagsPlugin *sharedPlugin;
         // Create menu items, initialize UI, etc.
 
         // Sample Menu Item:
-        NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"File"];
+        NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Source Control"];
         if (menuItem) {
             [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-            NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Do Action" action:@selector(doMenuAction) keyEquivalent:@""];
+            NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Tags..." action:@selector(presentTagsModal:) keyEquivalent:@""];
             [actionMenuItem setTarget:self];
             [[menuItem submenu] addItem:actionMenuItem];
         }
@@ -49,11 +51,29 @@ static WCGitTagsPlugin *sharedPlugin;
     return self;
 }
 
-// Sample Action, for menu item:
-- (void)doMenuAction
+- (void)presentTagsModal:(id)sender {
+    NSTask *getTagsTask = [[NSTask alloc] init];
+    
+}
+
+- (NSString *)currentDirectoryPath
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Hello, World" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
-    [alert runModal];
+    for (NSDocument *document in [NSApp orderedDocuments]) {
+        @try {
+            //        _workspace(IDEWorkspace) -> representingFilePath(DVTFilePath) -> relativePathOnVolume(NSString)
+            NSURL *workspaceDirectoryURL = [[[document valueForKeyPath:@"_workspace.representingFilePath.fileURL"] URLByDeletingLastPathComponent] filePathURL];
+            
+            if(workspaceDirectoryURL) {
+                return [workspaceDirectoryURL absoluteString];
+            }
+        }
+        
+        @catch (NSException *exception) {
+            NSLog(@"OROpenInAppCode Xcode plugin: Raised an exception while asking for the documents '_workspace.representingFilePath.relativePathOnVolume' key path: %@", exception);
+        }
+    }
+    
+    return nil;
 }
 
 - (void)dealloc

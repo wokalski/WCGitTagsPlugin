@@ -11,6 +11,7 @@
 		C9E9F21B18E1AE0F0051DF61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E9F21A18E1AE0F0051DF61 /* Foundation.framework */; };
 		C9E9F22118E1AE0F0051DF61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9E9F21F18E1AE0F0051DF61 /* InfoPlist.strings */; };
 		C9E9F22418E1AE0F0051DF61 /* WCGitTagsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E9F22318E1AE0F0051DF61 /* WCGitTagsPlugin.m */; };
+		C9E9F22F18E1B5820051DF61 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E9F22E18E1B5820051DF61 /* View.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C9E9F22218E1AE0F0051DF61 /* WCGitTagsPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCGitTagsPlugin.h; sourceTree = "<group>"; };
 		C9E9F22318E1AE0F0051DF61 /* WCGitTagsPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCGitTagsPlugin.m; sourceTree = "<group>"; };
 		C9E9F22518E1AE0F0051DF61 /* WCGitTagsPlugin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WCGitTagsPlugin-Prefix.pch"; sourceTree = "<group>"; };
+		C9E9F22E18E1B5820051DF61 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				C9E9F22218E1AE0F0051DF61 /* WCGitTagsPlugin.h */,
 				C9E9F22318E1AE0F0051DF61 /* WCGitTagsPlugin.m */,
 				C9E9F21D18E1AE0F0051DF61 /* Supporting Files */,
+				C9E9F22E18E1B5820051DF61 /* View.xib */,
 			);
 			path = WCGitTagsPlugin;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E9F22F18E1B5820051DF61 /* View.xib in Resources */,
 				C9E9F22118E1AE0F0051DF61 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +286,7 @@
 				C9E9F22A18E1AE0F0051DF61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
