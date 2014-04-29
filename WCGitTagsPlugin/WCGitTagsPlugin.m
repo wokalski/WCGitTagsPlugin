@@ -160,9 +160,7 @@ static WCGitTagsPlugin *sharedPlugin;
 }
 
 - (void)presentAddTagsPanel {
-    [self.tagsWindow beginSheet:self.addTagWindow completionHandler:^(NSModalResponse returnCode) {
-        [self.tagsWindow orderOut:self];
-    }];
+    [self.tagsWindow beginSheet:self.addTagWindow completionHandler:nil];
 }
 
 #pragma mark IBActions
