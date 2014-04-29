@@ -1,1 +1,1 @@
-Readme
+->![Logo](/Resources/Tags plugin icon.png)<-
