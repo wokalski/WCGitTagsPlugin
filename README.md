@@ -1,4 +1,4 @@
-<p align="center"> <img src="/Resources/Tags%20plugin%20icon.png"/></p>
+<p align="center"> <img src="/Resources/Logo.png"/></p>
 
 ##Overview
 This Xcode plugin lets you add tags via Xcode's Source Control.
