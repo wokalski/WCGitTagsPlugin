@@ -7,7 +7,7 @@ I'm [@wczekalski](http://twitter.com/wczekalski). I'm developing [Quickread](htt
 
 
 ![menu](Resources/menu.tiff)
-![revealed menu](Resources/revealed.tiff)
+![revealed menu](Resources/revealed.png)
 
 ##Features
 You can list, add (either annotated or lightweight) and remove tags, equivalents to following:
