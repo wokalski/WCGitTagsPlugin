@@ -1,1 +1,27 @@
-->![Logo](/Resources/Tags plugin icon.png)<-
+<p align="center"> <img align="center" src="/Resources/Tags%20plugin%20icon.png"/></p>
+
+##Overview
+This Xcode plugin lets you add tags via Xcode's Source Control.
+
+I'm [@wczekalski](http://twitter.com/wczekalski). I'm developing [Quickread](http://quickreadapp.com) and _run out of cash_, therefore, I am available for freelance work. [Mail me](mailto:me@wczekalski.com) if you are interested. If you like what I do and are feeling generous, feel free to [donate me](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z9DVW7VD6PSPW).
+
+##Features
+You can list, add (either annotated or lightweight) and remove tags, equivalents to following:
+  - `git tag`
+  - `git tag x`
+  - `git tag -a x -m "x"`
+  - `git push --tags`
+  - `git fetch --tags`
+   
+  All changes are synced with a remote.
+
+##Installation
+You can install it with [Alcatraz](http://alcatraz.io) ***or***:
+  1. Clone/download the source
+  2. Open `WCGitTagsPlugin.xcodeproj`
+  3. Build
+  4. Relaunch Xcode
+
+##Author
+
+
