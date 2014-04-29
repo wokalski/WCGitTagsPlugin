@@ -1,9 +1,12 @@
-<p align="center"> <img align="center" src="/Resources/Tags%20plugin%20icon.png"/></p>
+<p align="center"> <img src="/Resources/Tags%20plugin%20icon.png"/></p>
 
 ##Overview
 This Xcode plugin lets you add tags via Xcode's Source Control.
 
 I'm [@wczekalski](http://twitter.com/wczekalski). I'm developing [Quickread](http://quickreadapp.com) and _run out of cash_, therefore, I am available for freelance work. [Mail me](mailto:me@wczekalski.com) if you are interested. If you like what I do and are feeling generous, feel free to [donate me](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L9X5FY4JWU8JY).
+
+![menu](Resources/menu.tiff)
+![revealed menu](Resources/revealed.tiff)
 
 ##Features
 You can list, add (either annotated or lightweight) and remove tags, equivalents to following:
