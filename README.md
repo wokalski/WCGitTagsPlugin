@@ -3,7 +3,7 @@
 ##Overview
 This Xcode plugin lets you add tags via Xcode's Source Control.
 
-I'm [@wczekalski](http://twitter.com/wczekalski). I'm developing [Quickread](http://quickreadapp.com) and _run out of cash_, therefore, I am available for freelance work. [Mail me](mailto:me@wczekalski.com) if you are interested. If you like what I do and are feeling generous, feel free to [donate me](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L9X5FY4JWU8JY).
+I'm [@wczekalski](http://twitter.com/wczekalski). I'm developing [Quickread](http://quickreadapp.com) and _ran out of cash_, therefore, I am available for freelance work. [Mail me](mailto:me@wczekalski.com) if you are interested. If you like what I do and are feeling generous, feel free to [donate me](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L9X5FY4JWU8JY).
 
 
 ![menu](Resources/menu.tiff)
