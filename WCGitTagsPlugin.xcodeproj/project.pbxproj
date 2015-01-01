@@ -7,196 +7,174 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C92C97B8190D7AD70039EE2D /* ObjectiveGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92C97B7190D7AD70039EE2D /* ObjectiveGit.framework */; };
-		C92C97B9190D7ADD0039EE2D /* ObjectiveGit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C92C97B7190D7AD70039EE2D /* ObjectiveGit.framework */; };
-		C939429B190E5C8800EE83F6 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C939429A190E5C8800EE83F6 /* CoreServices.framework */; };
-		C939429E190E5CF700EE83F6 /* WCTagWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = C939429D190E5CF700EE83F6 /* WCTagWatchdog.m */; };
-		C9404A97190DC78900C3877E /* GTTag+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = C9404A96190DC78900C3877E /* GTTag+Time.m */; };
-		C9A8592D190ECF1700D12B58 /* WCKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A8592C190ECF1700D12B58 /* WCKeyWindow.m */; };
-		C9D0D73B190EB3E400BE6F28 /* DSUnixTaskAbstractManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0D72F190EB3E400BE6F28 /* DSUnixTaskAbstractManager.m */; };
-		C9D0D73C190EB3E400BE6F28 /* DSUnixTaskSubProcessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0D731190EB3E400BE6F28 /* DSUnixTaskSubProcessManager.m */; };
-		C9D0D73D190EB3E400BE6F28 /* DSUnixTaskRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0D734190EB3E400BE6F28 /* DSUnixTaskRunner.m */; };
-		C9D0D73E190EB3E400BE6F28 /* DSUnixShellTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0D737190EB3E400BE6F28 /* DSUnixShellTask.m */; };
-		C9D0D73F190EB3E400BE6F28 /* DSUnixTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0D73A190EB3E400BE6F28 /* DSUnixTask.m */; };
-		C9DFF028190EF17F00CCAC1F /* GTTag+Equal.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFF027190EF17F00CCAC1F /* GTTag+Equal.m */; };
-		C9E9F21918E1AE0F0051DF61 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E9F21818E1AE0F0051DF61 /* AppKit.framework */; };
-		C9E9F21B18E1AE0F0051DF61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E9F21A18E1AE0F0051DF61 /* Foundation.framework */; };
-		C9E9F22118E1AE0F0051DF61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9E9F21F18E1AE0F0051DF61 /* InfoPlist.strings */; };
-		C9E9F22418E1AE0F0051DF61 /* WCGitTagsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E9F22318E1AE0F0051DF61 /* WCGitTagsPlugin.m */; };
-		C9E9F22F18E1B5820051DF61 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E9F22E18E1B5820051DF61 /* View.xib */; };
+		4B695C921A212B9100E0B6A4 /* ObjectiveGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B695C911A212B9100E0B6A4 /* ObjectiveGit.framework */; };
+		4B695C941A212BC900E0B6A4 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B695C931A212BC900E0B6A4 /* CoreServices.framework */; };
+		4B695C961A212BEC00E0B6A4 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B695C951A212BEC00E0B6A4 /* View.xib */; };
+		4B695CAB1A212C1F00E0B6A4 /* WCKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CA41A212C1F00E0B6A4 /* WCKeyWindow.m */; };
+		4B695CAC1A212C1F00E0B6A4 /* WCTagWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CA61A212C1F00E0B6A4 /* WCTagWatchdog.m */; };
+		4B695CAD1A212C1F00E0B6A4 /* GTTag+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CA81A212C1F00E0B6A4 /* GTTag+Time.m */; };
+		4B695CAE1A212C1F00E0B6A4 /* GTTag+Equal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CAA1A212C1F00E0B6A4 /* GTTag+Equal.m */; };
+		4B695CC11A212C3F00E0B6A4 /* DSUnixTaskAbstractManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CB51A212C3F00E0B6A4 /* DSUnixTaskAbstractManager.m */; };
+		4B695CC21A212C3F00E0B6A4 /* DSUnixTaskSubProcessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CB71A212C3F00E0B6A4 /* DSUnixTaskSubProcessManager.m */; };
+		4B695CC31A212C3F00E0B6A4 /* DSUnixTaskRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CBA1A212C3F00E0B6A4 /* DSUnixTaskRunner.m */; };
+		4B695CC41A212C3F00E0B6A4 /* DSUnixShellTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CBD1A212C3F00E0B6A4 /* DSUnixShellTask.m */; };
+		4B695CC51A212C3F00E0B6A4 /* DSUnixTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CC01A212C3F00E0B6A4 /* DSUnixTask.m */; };
+		4BFB6AF51A21264E00174F83 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFB6AF41A21264E00174F83 /* AppKit.framework */; };
+		4BFB6AF71A21264E00174F83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFB6AF61A21264E00174F83 /* Foundation.framework */; };
+		4BFB6AFC1A21264E00174F83 /* WCGitTagsPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB6AFB1A21264E00174F83 /* WCGitTagsPlugin.xcscheme */; };
+		4BFB6AFF1A21264E00174F83 /* WCGitTagsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB6AFE1A21264E00174F83 /* WCGitTagsPlugin.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		C924F6F1190D7A03007050A3 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C92C97B9190D7ADD0039EE2D /* ObjectiveGit.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		C92C97B7190D7AD70039EE2D /* ObjectiveGit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjectiveGit.framework; sourceTree = "<group>"; };
-		C939429A190E5C8800EE83F6 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		C939429C190E5CF700EE83F6 /* WCTagWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTagWatchdog.h; sourceTree = "<group>"; };
-		C939429D190E5CF700EE83F6 /* WCTagWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTagWatchdog.m; sourceTree = "<group>"; };
-		C9404A95190DC78900C3877E /* GTTag+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTTag+Time.h"; sourceTree = "<group>"; };
-		C9404A96190DC78900C3877E /* GTTag+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTTag+Time.m"; sourceTree = "<group>"; };
-		C9A8592B190ECF1700D12B58 /* WCKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCKeyWindow.h; sourceTree = "<group>"; };
-		C9A8592C190ECF1700D12B58 /* WCKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCKeyWindow.m; sourceTree = "<group>"; };
-		C9D0D72A190EB3E400BE6F28 /* DSUnixTaskInterfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTaskInterfaces.h; sourceTree = "<group>"; };
-		C9D0D72C190EB3E400BE6F28 /* DSUnixTaskAbstractManager+SubclassesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSUnixTaskAbstractManager+SubclassesInterface.h"; sourceTree = "<group>"; };
-		C9D0D72D190EB3E400BE6F28 /* DSUnixTaskAbstractManager+TaskInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSUnixTaskAbstractManager+TaskInterface.h"; sourceTree = "<group>"; };
-		C9D0D72E190EB3E400BE6F28 /* DSUnixTaskAbstractManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTaskAbstractManager.h; sourceTree = "<group>"; };
-		C9D0D72F190EB3E400BE6F28 /* DSUnixTaskAbstractManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixTaskAbstractManager.m; sourceTree = "<group>"; };
-		C9D0D730190EB3E400BE6F28 /* DSUnixTaskSubProcessManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTaskSubProcessManager.h; sourceTree = "<group>"; };
-		C9D0D731190EB3E400BE6F28 /* DSUnixTaskSubProcessManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixTaskSubProcessManager.m; sourceTree = "<group>"; };
-		C9D0D733190EB3E400BE6F28 /* DSUnixTaskRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTaskRunner.h; sourceTree = "<group>"; };
-		C9D0D734190EB3E400BE6F28 /* DSUnixTaskRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixTaskRunner.m; sourceTree = "<group>"; };
-		C9D0D736190EB3E400BE6F28 /* DSUnixShellTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixShellTask.h; sourceTree = "<group>"; };
-		C9D0D737190EB3E400BE6F28 /* DSUnixShellTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixShellTask.m; sourceTree = "<group>"; };
-		C9D0D738190EB3E400BE6F28 /* DSUnixTask+ManagerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSUnixTask+ManagerInterface.h"; sourceTree = "<group>"; };
-		C9D0D739190EB3E400BE6F28 /* DSUnixTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTask.h; sourceTree = "<group>"; };
-		C9D0D73A190EB3E400BE6F28 /* DSUnixTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixTask.m; sourceTree = "<group>"; };
-		C9DFF026190EF17F00CCAC1F /* GTTag+Equal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTTag+Equal.h"; sourceTree = "<group>"; };
-		C9DFF027190EF17F00CCAC1F /* GTTag+Equal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTTag+Equal.m"; sourceTree = "<group>"; };
-		C9E9F21518E1AE0E0051DF61 /* WCGitTagsPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCGitTagsPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9E9F21818E1AE0F0051DF61 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		C9E9F21A18E1AE0F0051DF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C9E9F21E18E1AE0F0051DF61 /* WCGitTagsPlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WCGitTagsPlugin-Info.plist"; sourceTree = "<group>"; };
-		C9E9F22018E1AE0F0051DF61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C9E9F22218E1AE0F0051DF61 /* WCGitTagsPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCGitTagsPlugin.h; sourceTree = "<group>"; };
-		C9E9F22318E1AE0F0051DF61 /* WCGitTagsPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCGitTagsPlugin.m; sourceTree = "<group>"; };
-		C9E9F22518E1AE0F0051DF61 /* WCGitTagsPlugin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WCGitTagsPlugin-Prefix.pch"; sourceTree = "<group>"; };
-		C9E9F22E18E1B5820051DF61 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		4B695C911A212B9100E0B6A4 /* ObjectiveGit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjectiveGit.framework; sourceTree = "<group>"; };
+		4B695C931A212BC900E0B6A4 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		4B695C951A212BEC00E0B6A4 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		4B695CA31A212C1F00E0B6A4 /* WCKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCKeyWindow.h; sourceTree = "<group>"; };
+		4B695CA41A212C1F00E0B6A4 /* WCKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCKeyWindow.m; sourceTree = "<group>"; };
+		4B695CA51A212C1F00E0B6A4 /* WCTagWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCTagWatchdog.h; sourceTree = "<group>"; };
+		4B695CA61A212C1F00E0B6A4 /* WCTagWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCTagWatchdog.m; sourceTree = "<group>"; };
+		4B695CA71A212C1F00E0B6A4 /* GTTag+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTTag+Time.h"; sourceTree = "<group>"; };
+		4B695CA81A212C1F00E0B6A4 /* GTTag+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTTag+Time.m"; sourceTree = "<group>"; };
+		4B695CA91A212C1F00E0B6A4 /* GTTag+Equal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTTag+Equal.h"; sourceTree = "<group>"; };
+		4B695CAA1A212C1F00E0B6A4 /* GTTag+Equal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTTag+Equal.m"; sourceTree = "<group>"; };
+		4B695CB01A212C3F00E0B6A4 /* DSUnixTaskInterfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTaskInterfaces.h; sourceTree = "<group>"; };
+		4B695CB21A212C3F00E0B6A4 /* DSUnixTaskAbstractManager+SubclassesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSUnixTaskAbstractManager+SubclassesInterface.h"; sourceTree = "<group>"; };
+		4B695CB31A212C3F00E0B6A4 /* DSUnixTaskAbstractManager+TaskInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSUnixTaskAbstractManager+TaskInterface.h"; sourceTree = "<group>"; };
+		4B695CB41A212C3F00E0B6A4 /* DSUnixTaskAbstractManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTaskAbstractManager.h; sourceTree = "<group>"; };
+		4B695CB51A212C3F00E0B6A4 /* DSUnixTaskAbstractManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixTaskAbstractManager.m; sourceTree = "<group>"; };
+		4B695CB61A212C3F00E0B6A4 /* DSUnixTaskSubProcessManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTaskSubProcessManager.h; sourceTree = "<group>"; };
+		4B695CB71A212C3F00E0B6A4 /* DSUnixTaskSubProcessManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixTaskSubProcessManager.m; sourceTree = "<group>"; };
+		4B695CB91A212C3F00E0B6A4 /* DSUnixTaskRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTaskRunner.h; sourceTree = "<group>"; };
+		4B695CBA1A212C3F00E0B6A4 /* DSUnixTaskRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixTaskRunner.m; sourceTree = "<group>"; };
+		4B695CBC1A212C3F00E0B6A4 /* DSUnixShellTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixShellTask.h; sourceTree = "<group>"; };
+		4B695CBD1A212C3F00E0B6A4 /* DSUnixShellTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixShellTask.m; sourceTree = "<group>"; };
+		4B695CBE1A212C3F00E0B6A4 /* DSUnixTask+ManagerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSUnixTask+ManagerInterface.h"; sourceTree = "<group>"; };
+		4B695CBF1A212C3F00E0B6A4 /* DSUnixTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTask.h; sourceTree = "<group>"; };
+		4B695CC01A212C3F00E0B6A4 /* DSUnixTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSUnixTask.m; sourceTree = "<group>"; };
+		4B695CC61A212C8800E0B6A4 /* WCGitTagsPlugin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WCGitTagsPlugin-Prefix.pch"; sourceTree = "<group>"; };
+		4BFB6AF11A21264E00174F83 /* WCGitTagsPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCGitTagsPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BFB6AF41A21264E00174F83 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		4BFB6AF61A21264E00174F83 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		4BFB6AFA1A21264E00174F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BFB6AFB1A21264E00174F83 /* WCGitTagsPlugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WCGitTagsPlugin.xcscheme; path = WCGitTagsPlugin.xcodeproj/xcshareddata/xcschemes/WCGitTagsPlugin.xcscheme; sourceTree = SOURCE_ROOT; };
+		4BFB6AFD1A21264E00174F83 /* WCGitTagsPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCGitTagsPlugin.h; sourceTree = "<group>"; };
+		4BFB6AFE1A21264E00174F83 /* WCGitTagsPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCGitTagsPlugin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C9E9F21218E1AE0E0051DF61 /* Frameworks */ = {
+		4BFB6AEF1A21264E00174F83 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C939429B190E5C8800EE83F6 /* CoreServices.framework in Frameworks */,
-				C9E9F21918E1AE0F0051DF61 /* AppKit.framework in Frameworks */,
-				C92C97B8190D7AD70039EE2D /* ObjectiveGit.framework in Frameworks */,
-				C9E9F21B18E1AE0F0051DF61 /* Foundation.framework in Frameworks */,
+				4B695C941A212BC900E0B6A4 /* CoreServices.framework in Frameworks */,
+				4BFB6AF51A21264E00174F83 /* AppKit.framework in Frameworks */,
+				4B695C921A212B9100E0B6A4 /* ObjectiveGit.framework in Frameworks */,
+				4BFB6AF71A21264E00174F83 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C9D0D729190EB3E400BE6F28 /* Core */ = {
+		4B695CAF1A212C3F00E0B6A4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C9D0D72A190EB3E400BE6F28 /* DSUnixTaskInterfaces.h */,
-				C9D0D72B190EB3E400BE6F28 /* TaskManagers */,
-				C9D0D732190EB3E400BE6F28 /* TaskRunner */,
-				C9D0D735190EB3E400BE6F28 /* Tasks */,
+				4B695CB01A212C3F00E0B6A4 /* DSUnixTaskInterfaces.h */,
+				4B695CB11A212C3F00E0B6A4 /* TaskManagers */,
+				4B695CB81A212C3F00E0B6A4 /* TaskRunner */,
+				4B695CBB1A212C3F00E0B6A4 /* Tasks */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		C9D0D72B190EB3E400BE6F28 /* TaskManagers */ = {
+		4B695CB11A212C3F00E0B6A4 /* TaskManagers */ = {
 			isa = PBXGroup;
 			children = (
-				C9D0D72C190EB3E400BE6F28 /* DSUnixTaskAbstractManager+SubclassesInterface.h */,
-				C9D0D72D190EB3E400BE6F28 /* DSUnixTaskAbstractManager+TaskInterface.h */,
-				C9D0D72E190EB3E400BE6F28 /* DSUnixTaskAbstractManager.h */,
-				C9D0D72F190EB3E400BE6F28 /* DSUnixTaskAbstractManager.m */,
-				C9D0D730190EB3E400BE6F28 /* DSUnixTaskSubProcessManager.h */,
-				C9D0D731190EB3E400BE6F28 /* DSUnixTaskSubProcessManager.m */,
+				4B695CB21A212C3F00E0B6A4 /* DSUnixTaskAbstractManager+SubclassesInterface.h */,
+				4B695CB31A212C3F00E0B6A4 /* DSUnixTaskAbstractManager+TaskInterface.h */,
+				4B695CB41A212C3F00E0B6A4 /* DSUnixTaskAbstractManager.h */,
+				4B695CB51A212C3F00E0B6A4 /* DSUnixTaskAbstractManager.m */,
+				4B695CB61A212C3F00E0B6A4 /* DSUnixTaskSubProcessManager.h */,
+				4B695CB71A212C3F00E0B6A4 /* DSUnixTaskSubProcessManager.m */,
 			);
 			path = TaskManagers;
 			sourceTree = "<group>";
 		};
-		C9D0D732190EB3E400BE6F28 /* TaskRunner */ = {
+		4B695CB81A212C3F00E0B6A4 /* TaskRunner */ = {
 			isa = PBXGroup;
 			children = (
-				C9D0D733190EB3E400BE6F28 /* DSUnixTaskRunner.h */,
-				C9D0D734190EB3E400BE6F28 /* DSUnixTaskRunner.m */,
+				4B695CB91A212C3F00E0B6A4 /* DSUnixTaskRunner.h */,
+				4B695CBA1A212C3F00E0B6A4 /* DSUnixTaskRunner.m */,
 			);
 			path = TaskRunner;
 			sourceTree = "<group>";
 		};
-		C9D0D735190EB3E400BE6F28 /* Tasks */ = {
+		4B695CBB1A212C3F00E0B6A4 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				C9D0D736190EB3E400BE6F28 /* DSUnixShellTask.h */,
-				C9D0D737190EB3E400BE6F28 /* DSUnixShellTask.m */,
-				C9D0D738190EB3E400BE6F28 /* DSUnixTask+ManagerInterface.h */,
-				C9D0D739190EB3E400BE6F28 /* DSUnixTask.h */,
-				C9D0D73A190EB3E400BE6F28 /* DSUnixTask.m */,
+				4B695CBC1A212C3F00E0B6A4 /* DSUnixShellTask.h */,
+				4B695CBD1A212C3F00E0B6A4 /* DSUnixShellTask.m */,
+				4B695CBE1A212C3F00E0B6A4 /* DSUnixTask+ManagerInterface.h */,
+				4B695CBF1A212C3F00E0B6A4 /* DSUnixTask.h */,
+				4B695CC01A212C3F00E0B6A4 /* DSUnixTask.m */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
 		};
-		C9D0D740190EB3E800BE6F28 /* Unix Task */ = {
+		4BFB6AE81A21264E00174F83 = {
 			isa = PBXGroup;
 			children = (
-				C9D0D729190EB3E400BE6F28 /* Core */,
-			);
-			name = "Unix Task";
-			sourceTree = "<group>";
-		};
-		C9E9F20C18E1AE0E0051DF61 = {
-			isa = PBXGroup;
-			children = (
-				C9E9F21C18E1AE0F0051DF61 /* WCGitTagsPlugin */,
-				C9E9F21718E1AE0E0051DF61 /* Frameworks */,
-				C9E9F21618E1AE0E0051DF61 /* Products */,
+				4BFB6AF81A21264E00174F83 /* WCGitTagsPlugin */,
+				4BFB6AF31A21264E00174F83 /* Frameworks */,
+				4BFB6AF21A21264E00174F83 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C9E9F21618E1AE0E0051DF61 /* Products */ = {
+		4BFB6AF21A21264E00174F83 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9E9F21518E1AE0E0051DF61 /* WCGitTagsPlugin.xcplugin */,
+				4BFB6AF11A21264E00174F83 /* WCGitTagsPlugin.xcplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C9E9F21718E1AE0E0051DF61 /* Frameworks */ = {
+		4BFB6AF31A21264E00174F83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C939429A190E5C8800EE83F6 /* CoreServices.framework */,
-				C92C97B7190D7AD70039EE2D /* ObjectiveGit.framework */,
-				C9E9F21818E1AE0F0051DF61 /* AppKit.framework */,
-				C9E9F21A18E1AE0F0051DF61 /* Foundation.framework */,
+				4B695C931A212BC900E0B6A4 /* CoreServices.framework */,
+				4B695C911A212B9100E0B6A4 /* ObjectiveGit.framework */,
+				4BFB6AF41A21264E00174F83 /* AppKit.framework */,
+				4BFB6AF61A21264E00174F83 /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C9E9F21C18E1AE0F0051DF61 /* WCGitTagsPlugin */ = {
+		4BFB6AF81A21264E00174F83 /* WCGitTagsPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				C9D0D740190EB3E800BE6F28 /* Unix Task */,
-				C9E9F22218E1AE0F0051DF61 /* WCGitTagsPlugin.h */,
-				C9E9F22318E1AE0F0051DF61 /* WCGitTagsPlugin.m */,
-				C9A8592B190ECF1700D12B58 /* WCKeyWindow.h */,
-				C9A8592C190ECF1700D12B58 /* WCKeyWindow.m */,
-				C939429C190E5CF700EE83F6 /* WCTagWatchdog.h */,
-				C939429D190E5CF700EE83F6 /* WCTagWatchdog.m */,
-				C9404A95190DC78900C3877E /* GTTag+Time.h */,
-				C9404A96190DC78900C3877E /* GTTag+Time.m */,
-				C9DFF026190EF17F00CCAC1F /* GTTag+Equal.h */,
-				C9DFF027190EF17F00CCAC1F /* GTTag+Equal.m */,
-				C9E9F21D18E1AE0F0051DF61 /* Supporting Files */,
-				C9E9F22E18E1B5820051DF61 /* View.xib */,
+				4B695CAF1A212C3F00E0B6A4 /* Core */,
+				4BFB6AFD1A21264E00174F83 /* WCGitTagsPlugin.h */,
+				4BFB6AFE1A21264E00174F83 /* WCGitTagsPlugin.m */,
+				4B695CA31A212C1F00E0B6A4 /* WCKeyWindow.h */,
+				4B695CA41A212C1F00E0B6A4 /* WCKeyWindow.m */,
+				4B695CA51A212C1F00E0B6A4 /* WCTagWatchdog.h */,
+				4B695CA61A212C1F00E0B6A4 /* WCTagWatchdog.m */,
+				4B695CA71A212C1F00E0B6A4 /* GTTag+Time.h */,
+				4B695CA81A212C1F00E0B6A4 /* GTTag+Time.m */,
+				4B695CA91A212C1F00E0B6A4 /* GTTag+Equal.h */,
+				4B695CAA1A212C1F00E0B6A4 /* GTTag+Equal.m */,
+				4B695C951A212BEC00E0B6A4 /* View.xib */,
+				4BFB6AF91A21264E00174F83 /* Supporting Files */,
 			);
 			path = WCGitTagsPlugin;
 			sourceTree = "<group>";
 		};
-		C9E9F21D18E1AE0F0051DF61 /* Supporting Files */ = {
+		4BFB6AF91A21264E00174F83 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C9E9F21E18E1AE0F0051DF61 /* WCGitTagsPlugin-Info.plist */,
-				C9E9F21F18E1AE0F0051DF61 /* InfoPlist.strings */,
-				C9E9F22518E1AE0F0051DF61 /* WCGitTagsPlugin-Prefix.pch */,
+				4B695CC61A212C8800E0B6A4 /* WCGitTagsPlugin-Prefix.pch */,
+				4BFB6AFA1A21264E00174F83 /* Info.plist */,
+				4BFB6AFB1A21264E00174F83 /* WCGitTagsPlugin.xcscheme */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -204,14 +182,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C9E9F21418E1AE0E0051DF61 /* WCGitTagsPlugin */ = {
+		4BFB6AF01A21264E00174F83 /* WCGitTagsPlugin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9E9F22818E1AE0F0051DF61 /* Build configuration list for PBXNativeTarget "WCGitTagsPlugin" */;
+			buildConfigurationList = 4BFB6B021A21264E00174F83 /* Build configuration list for PBXNativeTarget "WCGitTagsPlugin" */;
 			buildPhases = (
-				C9E9F21118E1AE0E0051DF61 /* Sources */,
-				C9E9F21218E1AE0E0051DF61 /* Frameworks */,
-				C9E9F21318E1AE0E0051DF61 /* Resources */,
-				C924F6F1190D7A03007050A3 /* CopyFiles */,
+				4BFB6AED1A21264E00174F83 /* Sources */,
+				4BFB6AEE1A21264E00174F83 /* Resources */,
+				4BFB6AEF1A21264E00174F83 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,80 +196,74 @@
 			);
 			name = WCGitTagsPlugin;
 			productName = WCGitTagsPlugin;
-			productReference = C9E9F21518E1AE0E0051DF61 /* WCGitTagsPlugin.xcplugin */;
+			productReference = 4BFB6AF11A21264E00174F83 /* WCGitTagsPlugin.xcplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C9E9F20D18E1AE0E0051DF61 /* Project object */ = {
+		4BFB6AE91A21264E00174F83 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Wojciech Czekalski";
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = SRFDev;
+				TargetAttributes = {
+					4BFB6AF01A21264E00174F83 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
 			};
-			buildConfigurationList = C9E9F21018E1AE0E0051DF61 /* Build configuration list for PBXProject "WCGitTagsPlugin" */;
+			buildConfigurationList = 4BFB6AEC1A21264E00174F83 /* Build configuration list for PBXProject "WCGitTagsPlugin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = C9E9F20C18E1AE0E0051DF61;
-			productRefGroup = C9E9F21618E1AE0E0051DF61 /* Products */;
+			mainGroup = 4BFB6AE81A21264E00174F83;
+			productRefGroup = 4BFB6AF21A21264E00174F83 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C9E9F21418E1AE0E0051DF61 /* WCGitTagsPlugin */,
+				4BFB6AF01A21264E00174F83 /* WCGitTagsPlugin */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C9E9F21318E1AE0E0051DF61 /* Resources */ = {
+		4BFB6AEE1A21264E00174F83 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E9F22F18E1B5820051DF61 /* View.xib in Resources */,
-				C9E9F22118E1AE0F0051DF61 /* InfoPlist.strings in Resources */,
+				4B695C961A212BEC00E0B6A4 /* View.xib in Resources */,
+				4BFB6AFC1A21264E00174F83 /* WCGitTagsPlugin.xcscheme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C9E9F21118E1AE0E0051DF61 /* Sources */ = {
+		4BFB6AED1A21264E00174F83 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9D0D73C190EB3E400BE6F28 /* DSUnixTaskSubProcessManager.m in Sources */,
-				C9D0D73F190EB3E400BE6F28 /* DSUnixTask.m in Sources */,
-				C9404A97190DC78900C3877E /* GTTag+Time.m in Sources */,
-				C9D0D73E190EB3E400BE6F28 /* DSUnixShellTask.m in Sources */,
-				C9D0D73B190EB3E400BE6F28 /* DSUnixTaskAbstractManager.m in Sources */,
-				C939429E190E5CF700EE83F6 /* WCTagWatchdog.m in Sources */,
-				C9A8592D190ECF1700D12B58 /* WCKeyWindow.m in Sources */,
-				C9E9F22418E1AE0F0051DF61 /* WCGitTagsPlugin.m in Sources */,
-				C9DFF028190EF17F00CCAC1F /* GTTag+Equal.m in Sources */,
-				C9D0D73D190EB3E400BE6F28 /* DSUnixTaskRunner.m in Sources */,
+				4B695CAD1A212C1F00E0B6A4 /* GTTag+Time.m in Sources */,
+				4B695CC11A212C3F00E0B6A4 /* DSUnixTaskAbstractManager.m in Sources */,
+				4BFB6AFF1A21264E00174F83 /* WCGitTagsPlugin.m in Sources */,
+				4B695CC41A212C3F00E0B6A4 /* DSUnixShellTask.m in Sources */,
+				4B695CC21A212C3F00E0B6A4 /* DSUnixTaskSubProcessManager.m in Sources */,
+				4B695CC51A212C3F00E0B6A4 /* DSUnixTask.m in Sources */,
+				4B695CAB1A212C1F00E0B6A4 /* WCKeyWindow.m in Sources */,
+				4B695CC31A212C3F00E0B6A4 /* DSUnixTaskRunner.m in Sources */,
+				4B695CAE1A212C1F00E0B6A4 /* GTTag+Equal.m in Sources */,
+				4B695CAC1A212C1F00E0B6A4 /* WCTagWatchdog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		C9E9F21F18E1AE0F0051DF61 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9E9F22018E1AE0F0051DF61 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		C9E9F22618E1AE0F0051DF61 /* Debug */ = {
+		4BFB6B001A21264E00174F83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -307,11 +278,13 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -325,12 +298,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		C9E9F22718E1AE0F0051DF61 /* Release */ = {
+		4BFB6B011A21264E00174F83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -345,12 +318,13 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -358,11 +332,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				SDKROOT = macosx;
+				MTL_ENABLE_DEBUG_INFO = NO;
 			};
 			name = Release;
 		};
-		C9E9F22918E1AE0F0051DF61 /* Debug */ = {
+		4BFB6B031A21264E00174F83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -370,23 +344,19 @@
 				DSTROOT = "$(HOME)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/WCGitTagsPlugin",
 					"$(PROJECT_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WCGitTagsPlugin/WCGitTagsPlugin-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
-				INFOPLIST_FILE = "WCGitTagsPlugin/WCGitTagsPlugin-Info.plist";
+				INFOPLIST_FILE = WCGitTagsPlugin/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
 		};
-		C9E9F22A18E1AE0F0051DF61 /* Release */ = {
+		4BFB6B041A21264E00174F83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -394,18 +364,14 @@
 				DSTROOT = "$(HOME)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/WCGitTagsPlugin",
 					"$(PROJECT_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WCGitTagsPlugin/WCGitTagsPlugin-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
-				INFOPLIST_FILE = "WCGitTagsPlugin/WCGitTagsPlugin-Info.plist";
+				INFOPLIST_FILE = WCGitTagsPlugin/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;
@@ -413,25 +379,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C9E9F21018E1AE0E0051DF61 /* Build configuration list for PBXProject "WCGitTagsPlugin" */ = {
+		4BFB6AEC1A21264E00174F83 /* Build configuration list for PBXProject "WCGitTagsPlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C9E9F22618E1AE0F0051DF61 /* Debug */,
-				C9E9F22718E1AE0F0051DF61 /* Release */,
+				4BFB6B001A21264E00174F83 /* Debug */,
+				4BFB6B011A21264E00174F83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9E9F22818E1AE0F0051DF61 /* Build configuration list for PBXNativeTarget "WCGitTagsPlugin" */ = {
+		4BFB6B021A21264E00174F83 /* Build configuration list for PBXNativeTarget "WCGitTagsPlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C9E9F22918E1AE0F0051DF61 /* Debug */,
-				C9E9F22A18E1AE0F0051DF61 /* Release */,
+				4BFB6B031A21264E00174F83 /* Debug */,
+				4BFB6B041A21264E00174F83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C9E9F20D18E1AE0E0051DF61 /* Project object */;
+	rootObject = 4BFB6AE91A21264E00174F83 /* Project object */;
 }

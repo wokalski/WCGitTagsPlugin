@@ -225,7 +225,8 @@ static WCGitTagsPlugin *sharedPlugin;
 #pragma mark Other
 
 - (void)setSegmentedControlButtonsEnabled:(BOOL)enabled {
-    [self.segmentedControl setEnabled:enabled forSegment:0];
+    // if bottom line is uncommented, add tag button is never enabled.
+   // [self.segmentedControl setEnabled:enabled forSegment:0];
     [self.segmentedControl setEnabled:enabled forSegment:1];
     [self.segmentedControl setEnabled:enabled forSegment:3];
 }
