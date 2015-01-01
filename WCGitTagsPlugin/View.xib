@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
@@ -20,7 +20,7 @@
         <window identifier="Tags window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="pdB-R2-glR" customClass="WCKeyWindow">
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="-126" y="1013" width="528" height="366"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <view key="contentView" id="6qC-NZ-m0s">
                 <rect key="frame" x="0.0" y="0.0" width="528" height="366"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -71,7 +71,7 @@
                                                                         <binding destination="XNd-aN-WCp" name="value" keyPath="objectValue.message" id="K6W-yV-mXW"/>
                                                                     </connections>
                                                                 </textField>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vae-wF-X2Z">
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vae-wF-X2Z">
                                                                     <rect key="frame" x="13" y="21" width="40" height="18"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0.0.1" id="bJJ-sE-ebg">
                                                                         <font key="font" metaFont="system" size="14"/>
@@ -82,7 +82,7 @@
                                                                         <binding destination="XNd-aN-WCp" name="value" keyPath="objectValue.name" id="3Nm-LI-BTF"/>
                                                                     </connections>
                                                                 </textField>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f0I-U0-pxu">
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f0I-U0-pxu">
                                                                     <rect key="frame" x="57" y="22" width="33" height="14"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Uev-MZ-Mq0">
                                                                         <dateFormatter key="formatter" dateStyle="short" timeStyle="short" id="1Wt-I5-YbH"/>
@@ -117,10 +117,6 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="263" id="Myd-6j-8Z8"/>
-                                    <constraint firstAttribute="width" constant="443" id="mcb-J6-8Eu"/>
-                                </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Hb2-Ar-0mZ">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -128,7 +124,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZVB-gi-9aS">
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZVB-gi-9aS">
                                 <rect key="frame" x="43" y="61" width="443" height="23"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentary" id="CE2-Kd-FGv">
                                     <font key="font" metaFont="system"/>
@@ -139,7 +135,7 @@
                                         <segment image="NSRemoveTemplate" imageScaling="none" enabled="NO" tag="1">
                                             <nil key="label"/>
                                         </segment>
-                                        <segment width="357" enabled="NO">
+                                        <segment width="364" enabled="NO">
                                             <nil key="label"/>
                                         </segment>
                                         <segment image="NSRefreshTemplate" imageScaling="none">
@@ -151,8 +147,11 @@
                                     <action selector="segmentedControlClicked:" target="-2" id="7m0-JS-Qng"/>
                                 </connections>
                             </segmentedControl>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-9v-6if">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-9v-6if">
                                 <rect key="frame" x="418" y="13" width="96" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="84" id="4lI-iU-QsA"/>
+                                </constraints>
                                 <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k3H-3m-SqB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -163,17 +162,23 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="w0a-SC-DAB" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="4E8-gS-8iR"/>
-                            <constraint firstAttribute="height" constant="366" id="5PW-Fe-Gd7"/>
-                            <constraint firstItem="w0a-SC-DAB" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="43" id="cis-1c-mSO"/>
-                            <constraint firstAttribute="width" constant="528" id="iR4-2p-L4T"/>
-                            <constraint firstAttribute="bottom" secondItem="w0a-SC-DAB" secondAttribute="bottom" constant="83" id="uNH-Uh-EVs"/>
+                            <constraint firstItem="w0a-SC-DAB" firstAttribute="leading" secondItem="ZVB-gi-9aS" secondAttribute="leading" id="1fR-Ne-2Wx"/>
+                            <constraint firstItem="w0a-SC-DAB" firstAttribute="width" secondItem="ZVB-gi-9aS" secondAttribute="width" id="596-et-sDP"/>
+                            <constraint firstItem="ZVB-gi-9aS" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="5Av-ye-2mn"/>
+                            <constraint firstAttribute="bottom" secondItem="sEQ-9v-6if" secondAttribute="bottom" constant="20" symbolic="YES" id="6iL-hj-BFk"/>
+                            <constraint firstItem="w0a-SC-DAB" firstAttribute="trailing" secondItem="ZVB-gi-9aS" secondAttribute="trailing" id="djO-2B-ydE"/>
+                            <constraint firstAttribute="trailing" secondItem="sEQ-9v-6if" secondAttribute="trailing" constant="20" symbolic="YES" id="e12-pi-73J"/>
+                            <constraint firstItem="ZVB-gi-9aS" firstAttribute="top" secondItem="w0a-SC-DAB" secondAttribute="bottom" id="jQq-UJ-bJZ"/>
+                            <constraint firstItem="sEQ-9v-6if" firstAttribute="top" secondItem="ZVB-gi-9aS" secondAttribute="bottom" constant="21" id="stY-7l-Sjx"/>
+                            <constraint firstItem="w0a-SC-DAB" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="ubi-j2-2uc"/>
                         </constraints>
                     </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="c22-O7-iKe" firstAttribute="leading" secondItem="6qC-NZ-m0s" secondAttribute="leading" id="Kp1-ls-22z"/>
-                    <constraint firstItem="c22-O7-iKe" firstAttribute="top" secondItem="6qC-NZ-m0s" secondAttribute="top" id="Zff-Hn-MSL"/>
+                    <constraint firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="1Tk-94-0D4"/>
+                    <constraint firstItem="c22-O7-iKe" firstAttribute="leading" secondItem="6qC-NZ-m0s" secondAttribute="leading" id="WdY-OK-hZ4"/>
+                    <constraint firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" id="aTL-eA-sTA"/>
+                    <constraint firstItem="c22-O7-iKe" firstAttribute="top" secondItem="6qC-NZ-m0s" secondAttribute="top" id="iRa-mx-wYq"/>
                 </constraints>
             </view>
         </window>
@@ -190,7 +195,7 @@
         <window identifier="Add tag window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="jbm-Tb-Qe5" customClass="WCKeyWindow">
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="-126" y="1007" width="291" height="164"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <view key="contentView" id="W6k-YQ-mb4">
                 <rect key="frame" x="0.0" y="0.0" width="291" height="164"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -268,8 +273,8 @@ Gw
         </window>
     </objects>
     <resources>
-        <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSRefreshTemplate" width="11" height="15"/>
-        <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="NSAddTemplate" width="8" height="8"/>
+        <image name="NSRefreshTemplate" width="10" height="12"/>
+        <image name="NSRemoveTemplate" width="8" height="8"/>
     </resources>
 </document>
