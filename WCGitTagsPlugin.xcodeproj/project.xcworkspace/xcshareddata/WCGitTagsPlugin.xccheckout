@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DBC9D8EB-DABD-43FD-9332-84627DFF57A8</string>
+	<string>ADB28AD1-CD9B-45F3-9800-EAB82A62B341</string>
 	<key>IDESourceControlProjectName</key>
 	<string>WCGitTagsPlugin</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4A1D773003D37339838A9239E20BFBC1F14D7F74</key>
-		<string>https://github.com/SpottedRabbit/WCGitTagsPlugin.git</string>
+		<string>https://github.com/wczekalski/WCGitTagsPlugin.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>WCGitTagsPlugin.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/SpottedRabbit/WCGitTagsPlugin.git</string>
+	<string>https://github.com/wczekalski/WCGitTagsPlugin.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>4A1D773003D37339838A9239E20BFBC1F14D7F74</string>
 			<key>IDESourceControlWCCName</key>
-			<string>WCGitTagsPlugin_SRFFork</string>
+			<string>WCGitTagsPlugin</string>
 		</dict>
 	</array>
 </dict>
