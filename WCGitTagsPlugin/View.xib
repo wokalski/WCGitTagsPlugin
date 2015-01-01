@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WCGitTagsPlugin">
             <connections>
+                <outlet property="activityIndicator" destination="Yh0-ao-trx" id="LpA-NS-Ewe"/>
                 <outlet property="addTagButton" destination="aiw-H2-BOQ" id="eG4-WQ-o3y"/>
                 <outlet property="lightweightTagButton" destination="MGX-lF-Lm4" id="7ih-hr-dUi"/>
                 <outlet property="segmentedControl" destination="ZVB-gi-9aS" id="0ff-Yj-whI"/>
@@ -129,7 +130,7 @@
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentary" id="CE2-Kd-FGv">
                                     <font key="font" metaFont="system"/>
                                     <segments>
-                                        <segment image="NSAddTemplate" imageScaling="none">
+                                        <segment image="NSAddTemplate" imageScaling="none" enabled="NO">
                                             <nil key="label"/>
                                         </segment>
                                         <segment image="NSRemoveTemplate" imageScaling="none" enabled="NO" tag="1">
@@ -147,8 +148,11 @@
                                     <action selector="segmentedControlClicked:" target="-2" id="7m0-JS-Qng"/>
                                 </connections>
                             </segmentedControl>
+                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-ao-trx">
+                                <rect key="frame" x="256" y="64" width="16" height="16"/>
+                            </progressIndicator>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-9v-6if">
-                                <rect key="frame" x="418" y="13" width="96" height="32"/>
+                                <rect key="frame" x="216" y="16" width="96" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="4lI-iU-QsA"/>
                                 </constraints>
@@ -165,11 +169,13 @@
                             <constraint firstItem="w0a-SC-DAB" firstAttribute="leading" secondItem="ZVB-gi-9aS" secondAttribute="leading" id="1fR-Ne-2Wx"/>
                             <constraint firstItem="w0a-SC-DAB" firstAttribute="width" secondItem="ZVB-gi-9aS" secondAttribute="width" id="596-et-sDP"/>
                             <constraint firstItem="ZVB-gi-9aS" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="5Av-ye-2mn"/>
-                            <constraint firstAttribute="bottom" secondItem="sEQ-9v-6if" secondAttribute="bottom" constant="20" symbolic="YES" id="6iL-hj-BFk"/>
+                            <constraint firstAttribute="bottom" secondItem="sEQ-9v-6if" secondAttribute="bottom" constant="23" id="6iL-hj-BFk"/>
+                            <constraint firstItem="Yh0-ao-trx" firstAttribute="centerX" secondItem="ZVB-gi-9aS" secondAttribute="centerX" id="ajJ-Px-XlX"/>
                             <constraint firstItem="w0a-SC-DAB" firstAttribute="trailing" secondItem="ZVB-gi-9aS" secondAttribute="trailing" id="djO-2B-ydE"/>
-                            <constraint firstAttribute="trailing" secondItem="sEQ-9v-6if" secondAttribute="trailing" constant="20" symbolic="YES" id="e12-pi-73J"/>
+                            <constraint firstAttribute="trailing" secondItem="sEQ-9v-6if" secondAttribute="trailing" constant="222" id="e12-pi-73J"/>
                             <constraint firstItem="ZVB-gi-9aS" firstAttribute="top" secondItem="w0a-SC-DAB" secondAttribute="bottom" id="jQq-UJ-bJZ"/>
-                            <constraint firstItem="sEQ-9v-6if" firstAttribute="top" secondItem="ZVB-gi-9aS" secondAttribute="bottom" constant="21" id="stY-7l-Sjx"/>
+                            <constraint firstItem="Yh0-ao-trx" firstAttribute="centerY" secondItem="ZVB-gi-9aS" secondAttribute="centerY" id="qKP-B0-Lm7"/>
+                            <constraint firstItem="sEQ-9v-6if" firstAttribute="top" secondItem="ZVB-gi-9aS" secondAttribute="bottom" constant="18" id="stY-7l-Sjx"/>
                             <constraint firstItem="w0a-SC-DAB" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="ubi-j2-2uc"/>
                         </constraints>
                     </customView>
@@ -182,7 +188,7 @@
                 </constraints>
             </view>
         </window>
-        <arrayController objectClassName="GTTag" editable="NO" id="hCZ-1o-uro">
+        <arrayController objectClassName="GTTag" editable="NO" preservesSelection="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="hCZ-1o-uro">
             <connections>
                 <binding destination="-2" name="contentArray" keyPath="tags" id="yuF-Ef-cO7">
                     <dictionary key="options">

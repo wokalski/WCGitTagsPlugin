@@ -225,7 +225,7 @@ static WCGitTagsPlugin *sharedPlugin;
 #pragma mark Other
 
 - (void)setSegmentedControlButtonsEnabled:(BOOL)enabled {
-    //[self.segmentedControl setEnabled:enabled forSegment:0];
+    [self.segmentedControl setEnabled:enabled forSegment:0];
     [self.segmentedControl setEnabled:enabled forSegment:1];
     [self.segmentedControl setEnabled:enabled forSegment:3];
 }
@@ -266,17 +266,27 @@ static WCGitTagsPlugin *sharedPlugin;
             [self removeTag:tag];
         }
     }
+    
+    if([self.tags count] == 0) {
+         [self.segmentedControl setEnabled:NO forSegment:1];
+    }
 }
 
 #pragma mark  Command line
 
 - (void)syncTags {
+    [self.activityIndicator startAnimation:self];
     [self setSegmentedControlButtonsEnabled:NO];
     DSUnixTask *gitTask = [self gitTask];
     [gitTask setArguments:@[@"fetch", @"--tags"]];
     [gitTask setTerminationHandler:^(DSUnixTask *task) {
         [self pushTags];
-        [self setSegmentedControlButtonsEnabled:YES];
+        [_activityIndicator stopAnimation:self];
+        [self.segmentedControl setEnabled:YES forSegment:0];
+        [self.segmentedControl setEnabled:YES forSegment:3];
+        if([self.tableView selectedRow] != -1) {
+            [self.segmentedControl setEnabled:YES forSegment:1];
+        }
     }];
     [gitTask launch];
 }

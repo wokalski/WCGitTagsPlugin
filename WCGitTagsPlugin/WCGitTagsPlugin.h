@@ -26,5 +26,6 @@
 @property (weak) IBOutlet NSSegmentedControl *segmentedControl;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSButton *addTagButton;
+@property (weak) IBOutlet NSProgressIndicator *activityIndicator;
 
 @end
