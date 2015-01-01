@@ -19,6 +19,7 @@
 		4B695CC31A212C3F00E0B6A4 /* DSUnixTaskRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CBA1A212C3F00E0B6A4 /* DSUnixTaskRunner.m */; };
 		4B695CC41A212C3F00E0B6A4 /* DSUnixShellTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CBD1A212C3F00E0B6A4 /* DSUnixShellTask.m */; };
 		4B695CC51A212C3F00E0B6A4 /* DSUnixTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B695CC01A212C3F00E0B6A4 /* DSUnixTask.m */; };
+		4BE87E801A55A926003E027D /* ObjectiveGit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4B695C911A212B9100E0B6A4 /* ObjectiveGit.framework */; };
 		4BFB6AF51A21264E00174F83 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFB6AF41A21264E00174F83 /* AppKit.framework */; };
 		4BFB6AF71A21264E00174F83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFB6AF61A21264E00174F83 /* Foundation.framework */; };
 		4BFB6AFC1A21264E00174F83 /* WCGitTagsPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB6AFB1A21264E00174F83 /* WCGitTagsPlugin.xcscheme */; };
@@ -235,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE87E801A55A926003E027D /* ObjectiveGit.framework in Resources */,
 				4B695C961A212BEC00E0B6A4 /* View.xib in Resources */,
 				4BFB6AFC1A21264E00174F83 /* WCGitTagsPlugin.xcscheme in Resources */,
 			);
