@@ -171,11 +171,16 @@ static WCGitTagsPlugin *sharedPlugin;
     if (headReference) {
         
         GTObject *target = [headReference resolvedTarget];
+        NSError *error = nil;
         
         if (self.lightweightTagButton.state == NSOffState) {
-            [self.repository createTagNamed:[self.tagNameField stringValue] target:target tagger:[self.repository userSignatureForNow] message:[self.tagMessageField stringValue] error:nil];
+            if (![self.repository createTagNamed:[self.tagNameField stringValue] target:target tagger:[self.repository userSignatureForNow] message:[self.tagMessageField stringValue] error:&error]) {
+                //Put a breakpoint here if debugging
+            }
         } else {
-            [self.repository createLightweightTagNamed:[self.tagNameField stringValue] target:target error:nil];
+            if (![self.repository createLightweightTagNamed:[self.tagNameField stringValue] target:target error:&error]) {
+                //Put a breakpoint here if debugging
+            }
         }
         
         [self pushTags];
