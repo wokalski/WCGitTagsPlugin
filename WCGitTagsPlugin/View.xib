@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
@@ -20,8 +20,8 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window identifier="Tags window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="pdB-R2-glR" customClass="WCKeyWindow">
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="-126" y="1013" width="528" height="366"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="contentRect" x="350" y="197" width="528" height="366"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="6qC-NZ-m0s">
                 <rect key="frame" x="0.0" y="0.0" width="528" height="366"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="528" height="366"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="43" horizontalPageScroll="10" verticalLineScroll="43" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0a-SC-DAB">
-                                <rect key="frame" x="43" y="83" width="443" height="263"/>
+                                <rect key="frame" x="39" y="83" width="450" height="263"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="2xl-hH-cUq">
                                     <rect key="frame" x="0.0" y="0.0" width="443" height="263"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" width="440" minWidth="40" maxWidth="1000" id="xyW-tw-dNG">
+                                                <tableColumn identifier="" width="447" minWidth="40" maxWidth="1000" id="xyW-tw-dNG">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -55,7 +55,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="XNd-aN-WCp">
-                                                            <rect key="frame" x="1" y="1" width="440" height="42"/>
+                                                            <rect key="frame" x="1" y="1" width="447" height="42"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FOe-eb-2BJ">
@@ -73,7 +73,7 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vae-wF-X2Z">
-                                                                    <rect key="frame" x="13" y="21" width="40" height="18"/>
+                                                                    <rect key="frame" x="13" y="21" width="37" height="18"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0.0.1" id="bJJ-sE-ebg">
                                                                         <font key="font" metaFont="system" size="14"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -84,7 +84,7 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f0I-U0-pxu">
-                                                                    <rect key="frame" x="57" y="22" width="33" height="14"/>
+                                                                    <rect key="frame" x="54" y="22" width="33" height="14"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Uev-MZ-Mq0">
                                                                         <dateFormatter key="formatter" dateStyle="short" timeStyle="short" id="1Wt-I5-YbH"/>
                                                                         <font key="font" metaFont="smallSystem"/>
@@ -126,7 +126,7 @@
                                 </scroller>
                             </scrollView>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZVB-gi-9aS">
-                                <rect key="frame" x="43" y="61" width="443" height="23"/>
+                                <rect key="frame" x="39" y="61" width="450" height="23"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentary" id="CE2-Kd-FGv">
                                     <font key="font" metaFont="system"/>
                                     <segments>
@@ -201,7 +201,7 @@
         <window identifier="Add tag window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="jbm-Tb-Qe5" customClass="WCKeyWindow">
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="-126" y="1007" width="291" height="164"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="W6k-YQ-mb4">
                 <rect key="frame" x="0.0" y="0.0" width="291" height="164"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -279,8 +279,8 @@ Gw
         </window>
     </objects>
     <resources>
-        <image name="NSAddTemplate" width="8" height="8"/>
-        <image name="NSRefreshTemplate" width="10" height="12"/>
-        <image name="NSRemoveTemplate" width="8" height="8"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRefreshTemplate" width="11" height="15"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>
