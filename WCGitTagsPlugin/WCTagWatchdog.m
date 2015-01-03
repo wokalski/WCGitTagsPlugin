@@ -87,7 +87,9 @@ static void tagDirectoryChangeCallback(ConstFSEventStreamRef streamRef, void *cl
 
 static void tagDirectoryChangeCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo, size_t numEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[]) {
     WCTagWatchdog *watchDog = (__bridge WCTagWatchdog *)clientCallBackInfo;
-    watchDog.watchblock();
+    if (watchDog.watchblock) {
+        watchDog.watchblock();
+    }
 }
 
 @end
