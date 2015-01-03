@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C92C97B8190D7AD70039EE2D /* ObjectiveGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92C97B7190D7AD70039EE2D /* ObjectiveGit.framework */; };
-		C92C97B9190D7ADD0039EE2D /* ObjectiveGit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C92C97B7190D7AD70039EE2D /* ObjectiveGit.framework */; };
+		C92C97B9190D7ADD0039EE2D /* ObjectiveGit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C92C97B7190D7AD70039EE2D /* ObjectiveGit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C939429B190E5C8800EE83F6 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C939429A190E5C8800EE83F6 /* CoreServices.framework */; };
 		C939429E190E5CF700EE83F6 /* WCTagWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = C939429D190E5CF700EE83F6 /* WCTagWatchdog.m */; };
 		C9404A97190DC78900C3877E /* GTTag+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = C9404A96190DC78900C3877E /* GTTag+Time.m */; };
@@ -228,7 +228,7 @@
 		C9E9F20D18E1AE0E0051DF61 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Wojciech Czekalski";
 			};
 			buildConfigurationList = C9E9F21018E1AE0E0051DF61 /* Build configuration list for PBXProject "WCGitTagsPlugin" */;

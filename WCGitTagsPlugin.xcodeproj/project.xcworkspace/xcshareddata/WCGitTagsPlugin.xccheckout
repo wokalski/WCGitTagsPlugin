@@ -10,29 +10,29 @@
 	<string>WCGitTagsPlugin</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6A6E85A9-45CC-4CA0-9387-E9A8C2265F3B</key>
+		<key>4A1D773003D37339838A9239E20BFBC1F14D7F74</key>
 		<string>https://github.com/wczekalski/WCGitTagsPlugin.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>WCGitTagsPlugin.xcodeproj/project.xcworkspace</string>
+	<string>WCGitTagsPlugin.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6A6E85A9-45CC-4CA0-9387-E9A8C2265F3B</key>
+		<key>4A1D773003D37339838A9239E20BFBC1F14D7F74</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/wczekalski/WCGitTagsPlugin.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6A6E85A9-45CC-4CA0-9387-E9A8C2265F3B</string>
+	<string>4A1D773003D37339838A9239E20BFBC1F14D7F74</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6A6E85A9-45CC-4CA0-9387-E9A8C2265F3B</string>
+			<string>4A1D773003D37339838A9239E20BFBC1F14D7F74</string>
 			<key>IDESourceControlWCCName</key>
 			<string>WCGitTagsPlugin</string>
 		</dict>
