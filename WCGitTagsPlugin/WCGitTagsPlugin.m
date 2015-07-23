@@ -54,9 +54,7 @@ static WCGitTagsPlugin *sharedPlugin;
     NSString *currentApplicationName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
     if ([currentApplicationName isEqual:@"Xcode"]) {
         dispatch_once(&onceToken, ^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 sharedPlugin = [[self alloc] initWithBundle:plugin];
-            });
         });
     }
 }
@@ -67,35 +65,37 @@ static WCGitTagsPlugin *sharedPlugin;
         // reference to plugin's bundle, for resource acccess
         self.bundle = plugin;
         
-        NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Source Control"];
-        if (menuItem) {
-            
-            NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Tags..." action:@selector(presentTagsModal:) keyEquivalent:@""];
-            [actionMenuItem setTarget:self];
-            
-            self.refreshStatusItem = [[menuItem submenu] itemWithTitle:@"Refresh Status"];
-            [self.refreshStatusItem addObserver:self forKeyPath:@"enabled" options:0 context:NULL];
-            
-            NSInteger indexOfRefreshStatusItem = [[menuItem submenu] indexOfItem:self.refreshStatusItem];
-            if (indexOfRefreshStatusItem == -1) {
-                [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-                [[menuItem submenu] addItem:actionMenuItem];
-            } else {
-                [[menuItem submenu] insertItem:actionMenuItem atIndex:indexOfRefreshStatusItem];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Source Control"];
+            if (menuItem) {
+                
+                NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Tags..." action:@selector(presentTagsModal:) keyEquivalent:@""];
+                [actionMenuItem setTarget:self];
+                
+                self.refreshStatusItem = [[menuItem submenu] itemWithTitle:@"Refresh Status"];
+                [self.refreshStatusItem addObserver:self forKeyPath:@"enabled" options:0 context:NULL];
+                
+                NSInteger indexOfRefreshStatusItem = [[menuItem submenu] indexOfItem:self.refreshStatusItem];
+                if (indexOfRefreshStatusItem == -1) {
+                    [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
+                    [[menuItem submenu] addItem:actionMenuItem];
+                } else {
+                    [[menuItem submenu] insertItem:actionMenuItem atIndex:indexOfRefreshStatusItem];
+                }
+                
+                self.tagsItem = actionMenuItem;
+                [self.tagsItem setEnabled:self.refreshStatusItem.isEnabled];
+                
             }
-            
-            self.tagsItem = actionMenuItem;
-            [self.tagsItem setEnabled:self.refreshStatusItem.isEnabled];
-            
-            WCTagWatchdog *watchDog = [[WCTagWatchdog alloc] initWithWatchBlock:^{
-                [self willChangeValueForKey:@"tags"];
-                [self didChangeValueForKey:@"tags"];
-            }];
-            watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
-            self.watchDog = watchDog;
-            
-            self.beingPresented = NO;
-        }
+        });
+        WCTagWatchdog *watchDog = [[WCTagWatchdog alloc] initWithWatchBlock:^{
+            [self willChangeValueForKey:@"tags"];
+            [self didChangeValueForKey:@"tags"];
+        }];
+        watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
+        self.watchDog = watchDog;
+        
+        self.beingPresented = NO;
     }
     return self;
 }
@@ -116,15 +116,16 @@ static WCGitTagsPlugin *sharedPlugin;
 
 - (void)loadInterface {
     NSArray *topLevelObjects = nil;
-    [self.bundle loadNibNamed:@"View" owner:self topLevelObjects:&topLevelObjects];
-    for (id object in topLevelObjects) {
-        // Defensive way of doing things.
-        if ([object isKindOfClass:[NSWindow class]]) {
-            NSWindow *window = (NSWindow *)object;
-            if ([window.identifier isEqualToString:@"Add tag window"]) {
-                self.addTagWindow = window;
-            } else if ([window.identifier isEqualToString:@"Tags window"]) {
-                self.tagsWindow = window;
+    if ([self.bundle loadNibNamed:@"View" owner:self topLevelObjects:&topLevelObjects]) {
+        for (id object in topLevelObjects) {
+            // Defensive way of doing things.
+            if ([object isKindOfClass:[NSWindow class]]) {
+                NSWindow *window = (NSWindow *)object;
+                if ([window.identifier isEqualToString:@"Add tag window"]) {
+                    self.addTagWindow = window;
+                } else if ([window.identifier isEqualToString:@"Tags window"]) {
+                    self.tagsWindow = window;
+                }
             }
         }
     }
@@ -142,17 +143,23 @@ static WCGitTagsPlugin *sharedPlugin;
         if (!self.tagsWindow) {
             [self loadInterface];
         }
-        
-        self.beingPresented = YES;
-        [[NSApp keyWindow] beginSheet:self.tagsWindow completionHandler:^(NSModalResponse returnCode) {
-            [self.tagsWindow orderOut:self];
-            self.repository = nil;
-            self.beingPresented = NO;
-        }];
-        
-        self.watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
-        [self.watchDog start];
-        [self syncTags];
+        if (self.tagsWindow) {
+            self.beingPresented = YES;
+            [[NSApp keyWindow] beginSheet:self.tagsWindow completionHandler:^(NSModalResponse returnCode) {
+                [self.tagsWindow orderOut:self];
+                self.repository = nil;
+                self.beingPresented = NO;
+            }];
+            
+            self.watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
+            [self.watchDog start];
+            [self syncTags];
+        } else {
+            NSAlert *alert = [[NSAlert alloc] init];
+            alert.alertStyle = NSWarningAlertStyle;
+            alert.messageText = @"Generic error.";
+            [alert beginSheetModalForWindow:[NSApp keyWindow] completionHandler:nil];
+        }
     } else {
         NSAlert *alert = [[NSAlert alloc] init];
         alert.alertStyle = NSWarningAlertStyle;
