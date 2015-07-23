@@ -65,29 +65,12 @@ static WCGitTagsPlugin *sharedPlugin;
         // reference to plugin's bundle, for resource acccess
         self.bundle = plugin;
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Source Control"];
-            if (menuItem) {
-                
-                NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Tags..." action:@selector(presentTagsModal:) keyEquivalent:@""];
-                [actionMenuItem setTarget:self];
-                
-                self.refreshStatusItem = [[menuItem submenu] itemWithTitle:@"Refresh Status"];
-                [self.refreshStatusItem addObserver:self forKeyPath:@"enabled" options:0 context:NULL];
-                
-                NSInteger indexOfRefreshStatusItem = [[menuItem submenu] indexOfItem:self.refreshStatusItem];
-                if (indexOfRefreshStatusItem == -1) {
-                    [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-                    [[menuItem submenu] addItem:actionMenuItem];
-                } else {
-                    [[menuItem submenu] insertItem:actionMenuItem atIndex:indexOfRefreshStatusItem];
-                }
-                
-                self.tagsItem = actionMenuItem;
-                [self.tagsItem setEnabled:self.refreshStatusItem.isEnabled];
-                
-            }
-        });
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didApplicationFinishLaunchingNotification:)
+                                                     name:NSApplicationDidFinishLaunchingNotification
+                                                   object:nil];
+        
+
         WCTagWatchdog *watchDog = [[WCTagWatchdog alloc] initWithWatchBlock:^{
             [self willChangeValueForKey:@"tags"];
             [self didChangeValueForKey:@"tags"];
@@ -98,6 +81,32 @@ static WCGitTagsPlugin *sharedPlugin;
         self.beingPresented = NO;
     }
     return self;
+}
+
+-(void)didApplicationFinishLaunchingNotification:(id) sender{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
+    
+    NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Source Control"];
+    if (menuItem) {
+        
+        NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Tags..." action:@selector(presentTagsModal:) keyEquivalent:@""];
+        [actionMenuItem setTarget:self];
+        
+        self.refreshStatusItem = [[menuItem submenu] itemWithTitle:@"Refresh Status"];
+        [self.refreshStatusItem addObserver:self forKeyPath:@"enabled" options:0 context:NULL];
+        
+        NSInteger indexOfRefreshStatusItem = [[menuItem submenu] indexOfItem:self.refreshStatusItem];
+        if (indexOfRefreshStatusItem == -1) {
+            [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
+            [[menuItem submenu] addItem:actionMenuItem];
+        } else {
+            [[menuItem submenu] insertItem:actionMenuItem atIndex:indexOfRefreshStatusItem];
+        }
+        
+        self.tagsItem = actionMenuItem;
+        [self.tagsItem setEnabled:self.refreshStatusItem.isEnabled];
+        
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
