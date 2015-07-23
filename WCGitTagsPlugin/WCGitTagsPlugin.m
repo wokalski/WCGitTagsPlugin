@@ -64,38 +64,49 @@ static WCGitTagsPlugin *sharedPlugin;
     if (self = [super init]) {
         // reference to plugin's bundle, for resource acccess
         self.bundle = plugin;
+        __weak id selfWeak = self;
+        [[NSNotificationCenter defaultCenter] addObserver:selfWeak
+                                                 selector:@selector(didApplicationFinishLaunchingNotification:)
+                                                     name:NSApplicationDidFinishLaunchingNotification
+                                                   object:nil];
         
-        NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Source Control"];
-        if (menuItem) {
-            
-            NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Tags..." action:@selector(presentTagsModal:) keyEquivalent:@""];
-            [actionMenuItem setTarget:self];
-            
-            self.refreshStatusItem = [[menuItem submenu] itemWithTitle:@"Refresh Status"];
-            [self.refreshStatusItem addObserver:self forKeyPath:@"enabled" options:0 context:NULL];
-            
-            NSInteger indexOfRefreshStatusItem = [[menuItem submenu] indexOfItem:self.refreshStatusItem];
-            if (indexOfRefreshStatusItem == -1) {
-                [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-                [[menuItem submenu] addItem:actionMenuItem];
-            } else {
-                [[menuItem submenu] insertItem:actionMenuItem atIndex:indexOfRefreshStatusItem];
-            }
-            
-            self.tagsItem = actionMenuItem;
-            [self.tagsItem setEnabled:self.refreshStatusItem.isEnabled];
-            
-            WCTagWatchdog *watchDog = [[WCTagWatchdog alloc] initWithWatchBlock:^{
-                [self willChangeValueForKey:@"tags"];
-                [self didChangeValueForKey:@"tags"];
-            }];
-            watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
-            self.watchDog = watchDog;
-            
-            self.beingPresented = NO;
-        }
+
+        WCTagWatchdog *watchDog = [[WCTagWatchdog alloc] initWithWatchBlock:^{
+            [self willChangeValueForKey:@"tags"];
+            [self didChangeValueForKey:@"tags"];
+        }];
+        watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
+        self.watchDog = watchDog;
+        
+        self.beingPresented = NO;
     }
     return self;
+}
+
+-(void)didApplicationFinishLaunchingNotification:(id) sender{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
+    
+    NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Source Control"];
+    if (menuItem) {
+        
+        NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Tags..." action:@selector(presentTagsModal:) keyEquivalent:@""];
+        [actionMenuItem setTarget:self];
+        
+        self.refreshStatusItem = [[menuItem submenu] itemWithTitle:@"Refresh Status"];
+        [self.refreshStatusItem addObserver:self forKeyPath:@"enabled" options:0 context:NULL];
+        
+        NSInteger indexOfRefreshStatusItem = [[menuItem submenu] indexOfItem:self.refreshStatusItem];
+        if (indexOfRefreshStatusItem == -1) {
+            [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
+            [[menuItem submenu] addItem:actionMenuItem];
+        } else {
+            [[menuItem submenu] insertItem:actionMenuItem atIndex:indexOfRefreshStatusItem];
+        }
+        
+        self.tagsItem = actionMenuItem;
+        [self.tagsItem setEnabled:self.refreshStatusItem.isEnabled];
+        
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -140,17 +151,18 @@ static WCGitTagsPlugin *sharedPlugin;
         if (!self.tagsWindow) {
             [self loadInterface];
         }
-        
-        self.beingPresented = YES;
-        [[NSApp keyWindow] beginSheet:self.tagsWindow completionHandler:^(NSModalResponse returnCode) {
-            [self.tagsWindow orderOut:self];
-            self.repository = nil;
-            self.beingPresented = NO;
-        }];
-        
-        self.watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
-        [self.watchDog start];
-        [self syncTags];
+        if (self.tagsWindow) {
+            self.beingPresented = YES;
+            [[NSApp keyWindow] beginSheet:self.tagsWindow completionHandler:^(NSModalResponse returnCode) {
+                [self.tagsWindow orderOut:self];
+                self.repository = nil;
+                self.beingPresented = NO;
+            }];
+            
+            self.watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
+            [self.watchDog start];
+            [self syncTags];
+        }
     } else {
         NSAlert *alert = [[NSAlert alloc] init];
         alert.alertStyle = NSWarningAlertStyle;
