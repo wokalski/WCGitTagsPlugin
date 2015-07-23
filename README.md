@@ -3,14 +3,14 @@
 ##Overview
 This Xcode plugin lets you add tags via Xcode's Source Control.
 
-I'm [@wczekalski](http://twitter.com/wczekalski). I'm developing [Quickread](http://quickreadapp.com) and _ran out of cash_, therefore, I am available for freelance work. [Mail me](mailto:me@wczekalski.com) if you are interested. If you like what I do and are feeling generous, feel free to [donate me](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L9X5FY4JWU8JY).
+I'm [@wczekalski](http://twitter.com/wczekalski).  I am available for freelance work. [Mail me](mailto:me@wczekalski.com) if you are interested.
 
 
 ![menu](Resources/menu.tiff)
 ![revealed menu](Resources/revealed.png)
 
 ##Features
-You can list, add (either annotated or lightweight) and remove tags, equivalents to following:
+You can list, add (either annotated or lightweight) and remove tags, equivalents to the following:
   - `git tag`
   - `git tag x`
   - `git tag -a x -m "x"`
