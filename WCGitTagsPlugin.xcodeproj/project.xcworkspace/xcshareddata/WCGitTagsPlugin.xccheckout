@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4A1D773003D37339838A9239E20BFBC1F14D7F74</key>
-		<string>https://github.com/LaserPatrick/WCGitTagsPlugin.git</string>
+		<string>https://github.com/wczekalski/WCGitTagsPlugin.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>WCGitTagsPlugin.xcodeproj/project.xcworkspace</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/LaserPatrick/WCGitTagsPlugin.git</string>
+	<string>https://github.com/wczekalski/WCGitTagsPlugin.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
