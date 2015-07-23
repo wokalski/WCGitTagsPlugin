@@ -54,7 +54,7 @@ static WCGitTagsPlugin *sharedPlugin;
     NSString *currentApplicationName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
     if ([currentApplicationName isEqual:@"Xcode"]) {
         dispatch_once(&onceToken, ^{
-                sharedPlugin = [[self alloc] initWithBundle:plugin];
+            sharedPlugin = [[self alloc] initWithBundle:plugin];
         });
     }
 }
@@ -64,8 +64,8 @@ static WCGitTagsPlugin *sharedPlugin;
     if (self = [super init]) {
         // reference to plugin's bundle, for resource acccess
         self.bundle = plugin;
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
+        __weak id selfWeak = self;
+        [[NSNotificationCenter defaultCenter] addObserver:selfWeak
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
@@ -125,16 +125,15 @@ static WCGitTagsPlugin *sharedPlugin;
 
 - (void)loadInterface {
     NSArray *topLevelObjects = nil;
-    if ([self.bundle loadNibNamed:@"View" owner:self topLevelObjects:&topLevelObjects]) {
-        for (id object in topLevelObjects) {
-            // Defensive way of doing things.
-            if ([object isKindOfClass:[NSWindow class]]) {
-                NSWindow *window = (NSWindow *)object;
-                if ([window.identifier isEqualToString:@"Add tag window"]) {
-                    self.addTagWindow = window;
-                } else if ([window.identifier isEqualToString:@"Tags window"]) {
-                    self.tagsWindow = window;
-                }
+    [self.bundle loadNibNamed:@"View" owner:self topLevelObjects:&topLevelObjects];
+    for (id object in topLevelObjects) {
+        // Defensive way of doing things.
+        if ([object isKindOfClass:[NSWindow class]]) {
+            NSWindow *window = (NSWindow *)object;
+            if ([window.identifier isEqualToString:@"Add tag window"]) {
+                self.addTagWindow = window;
+            } else if ([window.identifier isEqualToString:@"Tags window"]) {
+                self.tagsWindow = window;
             }
         }
     }
@@ -163,11 +162,6 @@ static WCGitTagsPlugin *sharedPlugin;
             self.watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
             [self.watchDog start];
             [self syncTags];
-        } else {
-            NSAlert *alert = [[NSAlert alloc] init];
-            alert.alertStyle = NSWarningAlertStyle;
-            alert.messageText = @"Generic error.";
-            [alert beginSheetModalForWindow:[NSApp keyWindow] completionHandler:nil];
         }
     } else {
         NSAlert *alert = [[NSAlert alloc] init];
