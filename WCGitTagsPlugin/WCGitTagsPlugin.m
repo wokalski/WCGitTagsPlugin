@@ -124,19 +124,20 @@ static WCGitTagsPlugin *sharedPlugin;
 #pragma mark Loading
 
 - (void)loadInterface {
+    self.tagsWindow = [self topLevelWindowInNibNamed:@"TagsWindow" owner:self];
+    self.addTagWindow = [self topLevelWindowInNibNamed:@"AddTagWindow" owner:self];
+}
+
+- (NSWindow *)topLevelWindowInNibNamed:(NSString *)nibName owner:(id)owner
+{
     NSArray *topLevelObjects = nil;
-    [self.bundle loadNibNamed:@"View" owner:self topLevelObjects:&topLevelObjects];
+    [self.bundle loadNibNamed:nibName owner:owner topLevelObjects:&topLevelObjects];
     for (id object in topLevelObjects) {
-        // Defensive way of doing things.
         if ([object isKindOfClass:[NSWindow class]]) {
-            NSWindow *window = (NSWindow *)object;
-            if ([window.identifier isEqualToString:@"Add tag window"]) {
-                self.addTagWindow = window;
-            } else if ([window.identifier isEqualToString:@"Tags window"]) {
-                self.tagsWindow = window;
-            }
+            return object;
         }
     }
+    return nil;
 }
 
 #pragma mark Presentation

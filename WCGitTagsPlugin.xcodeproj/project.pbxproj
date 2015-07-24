@@ -13,6 +13,7 @@
 		C939429E190E5CF700EE83F6 /* WCTagWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = C939429D190E5CF700EE83F6 /* WCTagWatchdog.m */; };
 		C9404A97190DC78900C3877E /* GTTag+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = C9404A96190DC78900C3877E /* GTTag+Time.m */; };
 		C9A8592D190ECF1700D12B58 /* WCKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A8592C190ECF1700D12B58 /* WCKeyWindow.m */; };
+		C9CC9F381B624C3000F48622 /* AddTagWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9CC9F371B624C3000F48622 /* AddTagWindow.xib */; };
 		C9D0D73B190EB3E400BE6F28 /* DSUnixTaskAbstractManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0D72F190EB3E400BE6F28 /* DSUnixTaskAbstractManager.m */; };
 		C9D0D73C190EB3E400BE6F28 /* DSUnixTaskSubProcessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0D731190EB3E400BE6F28 /* DSUnixTaskSubProcessManager.m */; };
 		C9D0D73D190EB3E400BE6F28 /* DSUnixTaskRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0D734190EB3E400BE6F28 /* DSUnixTaskRunner.m */; };
@@ -23,7 +24,7 @@
 		C9E9F21B18E1AE0F0051DF61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E9F21A18E1AE0F0051DF61 /* Foundation.framework */; };
 		C9E9F22118E1AE0F0051DF61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9E9F21F18E1AE0F0051DF61 /* InfoPlist.strings */; };
 		C9E9F22418E1AE0F0051DF61 /* WCGitTagsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E9F22318E1AE0F0051DF61 /* WCGitTagsPlugin.m */; };
-		C9E9F22F18E1B5820051DF61 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E9F22E18E1B5820051DF61 /* View.xib */; };
+		C9E9F22F18E1B5820051DF61 /* TagsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E9F22E18E1B5820051DF61 /* TagsWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +49,7 @@
 		C9404A96190DC78900C3877E /* GTTag+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTTag+Time.m"; sourceTree = "<group>"; };
 		C9A8592B190ECF1700D12B58 /* WCKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCKeyWindow.h; sourceTree = "<group>"; };
 		C9A8592C190ECF1700D12B58 /* WCKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCKeyWindow.m; sourceTree = "<group>"; };
+		C9CC9F371B624C3000F48622 /* AddTagWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTagWindow.xib; sourceTree = "<group>"; };
 		C9D0D72A190EB3E400BE6F28 /* DSUnixTaskInterfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSUnixTaskInterfaces.h; sourceTree = "<group>"; };
 		C9D0D72C190EB3E400BE6F28 /* DSUnixTaskAbstractManager+SubclassesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSUnixTaskAbstractManager+SubclassesInterface.h"; sourceTree = "<group>"; };
 		C9D0D72D190EB3E400BE6F28 /* DSUnixTaskAbstractManager+TaskInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSUnixTaskAbstractManager+TaskInterface.h"; sourceTree = "<group>"; };
@@ -72,7 +74,7 @@
 		C9E9F22218E1AE0F0051DF61 /* WCGitTagsPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCGitTagsPlugin.h; sourceTree = "<group>"; };
 		C9E9F22318E1AE0F0051DF61 /* WCGitTagsPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCGitTagsPlugin.m; sourceTree = "<group>"; };
 		C9E9F22518E1AE0F0051DF61 /* WCGitTagsPlugin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WCGitTagsPlugin-Prefix.pch"; sourceTree = "<group>"; };
-		C9E9F22E18E1B5820051DF61 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		C9E9F22E18E1B5820051DF61 /* TagsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagsWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +188,8 @@
 				C9DFF026190EF17F00CCAC1F /* GTTag+Equal.h */,
 				C9DFF027190EF17F00CCAC1F /* GTTag+Equal.m */,
 				C9E9F21D18E1AE0F0051DF61 /* Supporting Files */,
-				C9E9F22E18E1B5820051DF61 /* View.xib */,
+				C9E9F22E18E1B5820051DF61 /* TagsWindow.xib */,
+				C9CC9F371B624C3000F48622 /* AddTagWindow.xib */,
 			);
 			path = WCGitTagsPlugin;
 			sourceTree = "<group>";
@@ -253,8 +256,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E9F22F18E1B5820051DF61 /* View.xib in Resources */,
+				C9E9F22F18E1B5820051DF61 /* TagsWindow.xib in Resources */,
 				C9E9F22118E1AE0F0051DF61 /* InfoPlist.strings in Resources */,
+				C9CC9F381B624C3000F48622 /* AddTagWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
