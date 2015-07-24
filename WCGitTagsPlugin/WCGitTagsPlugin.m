@@ -26,8 +26,6 @@ static WCGitTagsPlugin *sharedPlugin;
 @property (nonatomic, weak) NSMenuItem *tagsItem;
 @property (nonatomic, weak) NSMenuItem *refreshStatusItem;
 
-@property (nonatomic, getter = isBeingPresented) BOOL beingPresented;
-
 - (NSURL *)currentDirectoryPath;
 - (void)loadInterface;
 
@@ -35,7 +33,7 @@ static WCGitTagsPlugin *sharedPlugin;
 
 - (void)syncTags;
 - (void)pushTags;
-- (void)removeTag:(GTTag *)tag;
+- (void)removeRemoteTag:(GTTag *)tag;
 
 - (void)presentAddTagsPanel;
 
@@ -64,48 +62,52 @@ static WCGitTagsPlugin *sharedPlugin;
     if (self = [super init]) {
         // reference to plugin's bundle, for resource acccess
         self.bundle = plugin;
-        __weak id selfWeak = self;
-        [[NSNotificationCenter defaultCenter] addObserver:selfWeak
-                                                 selector:@selector(didApplicationFinishLaunchingNotification:)
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidFinishLaunching:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
-        
-
-        WCTagWatchdog *watchDog = [[WCTagWatchdog alloc] initWithWatchBlock:^{
-            [self willChangeValueForKey:@"tags"];
-            [self didChangeValueForKey:@"tags"];
-        }];
-        watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
-        self.watchDog = watchDog;
-        
-        self.beingPresented = NO;
     }
     return self;
 }
 
--(void)didApplicationFinishLaunchingNotification:(id) sender{
+-(void)applicationDidFinishLaunching:(NSNotification *)sender
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
     
-    NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Source Control"];
+    NSMenuItem *menuItem = [self sourceControlItem];
+    
     if (menuItem) {
         
-        NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Tags..." action:@selector(presentTagsModal:) keyEquivalent:@""];
-        [actionMenuItem setTarget:self];
+        NSMenu *sourceControlMenu = [menuItem submenu];
         
-        self.refreshStatusItem = [[menuItem submenu] itemWithTitle:@"Refresh Status"];
-        [self.refreshStatusItem addObserver:self forKeyPath:@"enabled" options:0 context:NULL];
+        NSMenuItem *refreshStatusItem = [sourceControlMenu itemWithTitle:@"Refresh Status"];
         
-        NSInteger indexOfRefreshStatusItem = [[menuItem submenu] indexOfItem:self.refreshStatusItem];
-        if (indexOfRefreshStatusItem == -1) {
-            [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-            [[menuItem submenu] addItem:actionMenuItem];
-        } else {
-            [[menuItem submenu] insertItem:actionMenuItem atIndex:indexOfRefreshStatusItem];
-        }
+        NSMenuItem *tagsMenuItem = [self tagsMenuItemWithTarget:self selector:@selector(presentTagsModal:) enabled:refreshStatusItem.enabled];
         
-        self.tagsItem = actionMenuItem;
-        [self.tagsItem setEnabled:self.refreshStatusItem.isEnabled];
+        [self insertMenuItem:tagsMenuItem inMenu:sourceControlMenu atIndex:[self indexOfItem:refreshStatusItem inMenu:sourceControlMenu]];
+
+        [refreshStatusItem addObserver:self forKeyPath:@"enabled" options:0 context:NULL];
         
+        self.tagsItem = tagsMenuItem;
+        self.refreshStatusItem = refreshStatusItem;
+    } else {
+        NSLog(@"Initialization of WCGitTagsPlugin failed");
+    }
+}
+
+- (NSInteger)indexOfItem:(NSMenuItem *)item inMenu:(NSMenu *)menu
+{
+    return item != nil ? [menu indexOfItem:item] : -1;
+}
+
+- (void)insertMenuItem:(NSMenuItem *)menuItem inMenu:(NSMenu *)parentMenu atIndex:(NSInteger)index
+{
+    if (index == -1) {
+        [parentMenu addItem:[NSMenuItem separatorItem]];
+        [parentMenu addItem:menuItem];
+    } else {
+        [parentMenu insertItem:menuItem atIndex:index];
     }
 }
 
@@ -117,7 +119,6 @@ static WCGitTagsPlugin *sharedPlugin;
 {
     [self.refreshStatusItem removeObserver:self forKeyPath:@"enabled"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.watchDog invalidate];
 }
 
 #pragma mark - UI 
@@ -140,35 +141,34 @@ static WCGitTagsPlugin *sharedPlugin;
     return nil;
 }
 
+
 #pragma mark Presentation
 
 - (void)presentTagsModal:(id)sender {
     
-    if (self.isBeingPresented) {
+    if (self.tagsWindow.screen) {
         return;
     }
     
-    if (self.isGitRepository) {
+    GTRepository *repo = [self repositoryAtURL:[self currentDirectoryPath]];
+    
+    if (repo) {
+        self.repository = repo;
         if (!self.tagsWindow) {
             [self loadInterface];
         }
         if (self.tagsWindow) {
-            self.beingPresented = YES;
             [[NSApp keyWindow] beginSheet:self.tagsWindow completionHandler:^(NSModalResponse returnCode) {
                 [self.tagsWindow orderOut:self];
                 self.repository = nil;
-                self.beingPresented = NO;
             }];
             
-            self.watchDog.gitDirectoryURL = self.repository.gitDirectoryURL;
+            self.watchDog = [self watchDogInRepositoryAtURL:repo.gitDirectoryURL];
             [self.watchDog start];
             [self syncTags];
         }
-    } else {
-        NSAlert *alert = [[NSAlert alloc] init];
-        alert.alertStyle = NSWarningAlertStyle;
-        alert.messageText = @"This repository is not a git repository.";
-        [alert beginSheetModalForWindow:[NSApp keyWindow] completionHandler:nil];
+    } else { // Should never happen since Tags button is disabled
+        [[self notGitRepositoryAlert] beginSheetModalForWindow:[NSApp keyWindow] completionHandler:nil];
     }
 }
 
@@ -234,7 +234,7 @@ static WCGitTagsPlugin *sharedPlugin;
 }
 
 - (IBAction)endSheet:(id)sender {
-    [self.watchDog invalidate];
+    self.watchDog = nil;
     NSWindow *sheetWindow = self.tagsWindow.sheetParent;
     [self.tagsWindow close];
     [sheetWindow endSheet:self.tagsWindow];
@@ -281,7 +281,7 @@ static WCGitTagsPlugin *sharedPlugin;
         if (success == GIT_EINVALIDSPEC) {
             NSLog(@"ERROR: Could not remove tag: %@", tag);
         } else {
-            [self removeTag:tag];
+            [self removeRemoteTag:tag];
         }
     }
     
@@ -315,7 +315,7 @@ static WCGitTagsPlugin *sharedPlugin;
     [gitTask launch];
 }
 
-- (void)removeTag:(GTTag *)tag {
+- (void)removeRemoteTag:(GTTag *)tag {
     DSUnixTask *gitTask = [self gitTask];
     [gitTask setArguments:@[@"push", @"origin", [NSString stringWithFormat:@":refs/tags/%@", tag.name]]];
     [gitTask launch];
@@ -337,7 +337,7 @@ static WCGitTagsPlugin *sharedPlugin;
             //        _workspace(IDEWorkspace) -> representingFilePath(DVTFilePath) -> relativePathOnVolume(NSString)
             NSURL *workspaceDirectoryURL = [[[document valueForKeyPath:@"_workspace.representingFilePath.fileURL"] URLByDeletingLastPathComponent] filePathURL];
             
-            if(workspaceDirectoryURL) {
+            if (workspaceDirectoryURL) {
                 return workspaceDirectoryURL;
             }
         }
@@ -350,29 +350,56 @@ static WCGitTagsPlugin *sharedPlugin;
 
 - (NSArray *)tags {
     NSError *error = nil;
-    _tags = [self.repository allTagsWithError:&error];
+    NSArray *tags = [self.repository allTagsWithError:&error];
+    
     if (error) {
-        NSLog(@"Could not fetch tags: %@",error);
+        NSLog(@"Could not fetch tags: %@", error);
     }
-    return _tags;
+    return tags;
 }
 
-- (GTRepository *)repository {
-    if (!_repository) {
-        NSError *error = nil;
-        _repository = [GTRepository repositoryWithURL:[self currentDirectoryPath] error:&error];
-        if (error) {
-            NSLog(@"This repo is not a git repo: %@", error);
-        }
-    }
-    return _repository;
+#pragma mark -
+
+- (WCTagWatchdog *)watchDogInRepositoryAtURL:(NSURL *)url
+{
+    typeof(self) __weak weakSelf = self;
+    return [[WCTagWatchdog alloc] initWithGitDirectoryURL:url watchBlock:^{
+        [weakSelf willChangeValueForKey:@"tags"];
+        [weakSelf didChangeValueForKey:@"tags"]; // Blame it on Cocoa bindings
+    }];
 }
 
-- (BOOL)isGitRepository {
-    if (self.repository) {
-        return YES;
+- (GTRepository *)repositoryAtURL:(NSURL *)URL {
+    NSError *error = nil;
+    GTRepository *repository = [GTRepository repositoryWithURL:URL error:&error];
+    
+    if (error) {
+        NSLog(@"This repo is not a git repo: %@", error);
     }
-    return NO;
+    
+    return repository;
+}
+
+- (NSMenuItem *)sourceControlItem
+{
+    return [[NSApp mainMenu] itemWithTitle:@"Source Control"];
+}
+
+- (NSMenuItem *)tagsMenuItemWithTarget:(id)target selector:(SEL)selector enabled:(BOOL)enabled
+{
+    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Tags..." action:selector keyEquivalent:@""];
+    [actionMenuItem setTarget:target];
+    actionMenuItem.enabled = enabled;
+    
+    return actionMenuItem;
+}
+
+- (NSAlert *)notGitRepositoryAlert
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.alertStyle = NSWarningAlertStyle;
+    alert.messageText = @"This repository is not a git repository.";
+    return alert;
 }
 
 @end

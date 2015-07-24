@@ -10,26 +10,31 @@
 #import <CoreServices/CoreServices.h>
 
 @interface WCTagWatchdog ()
-@property (nonatomic, assign) FSEventStreamRef stream;
-static void tagDirectoryChangeCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo, size_t numEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[]);
+@property (nonatomic, assign, readonly) FSEventStreamRef stream;
 @end
 @implementation WCTagWatchdog
 
-- (instancetype)initWithWatchBlock:(void (^)())watchBlock {
-    self = [self init];
+- (instancetype)initWithGitDirectoryURL:(NSURL *)gitDirectoryURL watchBlock:(void (^)(void))watchBlock
+{
+    NSParameterAssert(gitDirectoryURL);
+    NSParameterAssert(watchBlock);
+    
+    self = [super init];
     if (self) {
-        self.watchblock = watchBlock;
+        _watchblock = watchBlock;
+        _gitDirectoryURL = gitDirectoryURL;
+        _stream = [self streamAtPath:[gitDirectoryURL.path stringByAppendingPathComponent:@"refs/tags"]];
     }
     return self;
 }
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.stream = NULL;
-    }
-    return self;
+- (void)dealloc {
+    [self stop];
+    FSEventStreamInvalidate(self.stream);
+    FSEventStreamRelease(self.stream);
 }
+
+#pragma mark - 
 
 - (void)stop {
     FSEventStreamStop(self.stream);
@@ -37,59 +42,45 @@ static void tagDirectoryChangeCallback(ConstFSEventStreamRef streamRef, void *cl
 
 - (void)start {
     self.watchblock();
-    if (self.stream) {
-        FSEventStreamStart(self.stream);
-    }
+    FSEventStreamStart(self.stream);
 }
 
-- (void)invalidate {
-    [self stop];
-    FSEventStreamInvalidate(self.stream);
-    FSEventStreamRelease(self.stream);
-    self.stream = NULL;
-}
+- (FSEventStreamRef)streamAtPath:(NSString *)path
+{
+    FSEventStreamRef stream = NULL;
+    
+    NSAssert([[NSFileManager defaultManager] fileExistsAtPath:path], @"There's no file at path: %@, cannot read tags from this directory.", path);
 
-- (FSEventStreamRef)stream {
-    if (_stream == NULL) {
-        NSString *path = [self.gitDirectoryURL.path stringByAppendingPathComponent:@"refs/tags"];
-        
-        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            NSArray *paths = [[NSArray alloc] initWithObjects:path, nil];
-            CFAbsoluteTime latency = .5; /* Latency in seconds */
-            
-            FSEventStreamContext context;
-            context.version = 0;
-            context.info = (__bridge void *)(self);
-            context.retain = NULL;
-            context.release = NULL;
-            context.copyDescription = NULL;
-            
-            /* Create the stream, passing in a callback */
-            FSEventStreamRef stream = FSEventStreamCreate(NULL,
-                                          &tagDirectoryChangeCallback,
-                                          &context,
-                                          (__bridge CFArrayRef)(paths),
-                                          kFSEventStreamEventIdSinceNow, /* Or a previous event ID */
-                                          latency,
-                                          kFSEventStreamCreateFlagNone /* Flags explained in reference */
-                                          );
-            FSEventStreamScheduleWithRunLoop(stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-            
-            _stream = stream;
-        }
-    }
-    return _stream;
-}
-
-- (void)dealloc {
-    [self invalidate];
+    NSArray *paths = [[NSArray alloc] initWithObjects:path, nil];
+    CFAbsoluteTime latency = .5; /* Latency in seconds */
+    
+    FSEventStreamContext context;
+    context.version = 0;
+    context.info = (__bridge void *)(self);
+    context.retain = NULL;
+    context.release = NULL;
+    context.copyDescription = NULL;
+    
+    /* Create the stream, passing in a callback */
+    stream = FSEventStreamCreate(NULL,
+                                  &tagDirectoryChangeCallback,
+                                  &context,
+                                  (__bridge CFArrayRef)(paths),
+                                  kFSEventStreamEventIdSinceNow, /* Or a previous event ID */
+                                  latency,
+                                  kFSEventStreamCreateFlagNone /* Flags explained in reference */
+                                  );
+    FSEventStreamScheduleWithRunLoop(stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+    return stream;
 }
 
 static void tagDirectoryChangeCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo, size_t numEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[]) {
+    
     WCTagWatchdog *watchDog = (__bridge WCTagWatchdog *)clientCallBackInfo;
     if (watchDog.watchblock) {
         watchDog.watchblock();
     }
+    
 }
 
 @end
