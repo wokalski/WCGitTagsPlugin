@@ -355,7 +355,7 @@ static WCGitTagsPlugin *sharedPlugin;
     if (error) {
         NSLog(@"Could not fetch tags: %@", error);
     }
-    return tags;
+    return [tags sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"tagger.time" ascending:false]]];
 }
 
 #pragma mark -
