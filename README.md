@@ -1,8 +1,11 @@
+#This project is no longer maintained
+
+The value added by this project is marginal in comparison to potential work that'd have to go into it.
+
+---
+
 ##Overview
 This Xcode plugin lets you add tags via Xcode's Source Control menu.
-
-I'm [@wczekalski](http://twitter.com/wczekalski).  I am available for freelance work. [Mail me](mailto:me@wczekalski.com) if you are interested.
-
 
 ![menu](Resources/menu.tiff)
 ![revealed menu](Resources/revealed.png)
